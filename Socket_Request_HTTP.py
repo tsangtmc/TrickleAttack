@@ -268,7 +268,8 @@ def Open_Socket_Send_BodyData_GeneratedAndChunked__TrickleAttack__(
     ending_time = time.time()               #(for RTT) Time when acknowledged the request
     elapsed_time = str(ending_time - initial_time)
     try:
-        status_code = http_response[8:12]
+        if(status_code == "n/a"):
+            status_code = http_response[8:12]
     except Exception as e:
         errors_collection = errors_collection +  "\nError: "+str(e)
     print_status(print_status_boolean, 'Closed Connection')
